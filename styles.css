@@ -1,0 +1,231 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+  background-color: #f0f2f5;
+  color: #333;
+  padding: 10px;
+  padding-bottom: 70px; /* Espaço para a Barra de Tarefas inferior */
+}
+
+/* Header Responsivo */
+.top-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1e293b;
+  color: white;
+  padding: 12px 16px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  gap: 10px;
+}
+
+.user-menu .icon-btn {
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.banner-title h1 {
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+.badge {
+  background-color: #3b82f6;
+  padding: 4px 10px;
+  border-radius: 15px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+
+/* Layout em Grid / Flexível para Celular */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 15px;
+}
+
+/* Cards / Widgets */
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  border: 1px solid #e2e8f0;
+  transition: transform 0.15s ease, opacity 0.2s ease;
+}
+
+.card.dragging {
+  opacity: 0.5;
+  transform: scale(0.98);
+}
+
+.card.hidden-widget {
+  display: none !important;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 6px;
+  border-bottom: 2px solid #f1f5f9;
+}
+
+.drag-handle {
+  font-weight: bold;
+  color: #334155;
+  cursor: grab;
+  font-size: 0.95rem;
+}
+
+.pin-btn {
+  background: none;
+  border: none;
+  color: #64748b;
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+
+.pin-btn:hover {
+  color: #ef4444;
+}
+
+/* Listas e Elementos Inteiros */
+.carousel-control {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.schedule-list, .links-list, .acervo-list, .task-list {
+  list-style: none;
+}
+
+.schedule-list li, .links-list li, .acervo-list li, .task-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #f1f5f9;
+  font-size: 0.85rem;
+}
+
+#quick-notes {
+  width: 100%;
+  height: 80px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 0.85rem;
+}
+
+.player-box {
+  text-align: center;
+}
+
+.disc-icon { font-size: 2rem; }
+
+.player-box input, .task-input-box input {
+  width: 100%;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid #cbd5e1;
+  font-size: 0.85rem;
+}
+
+.task-input-box {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.task-input-box button {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.study-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.study-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+/* Barra de Tarefas Estilo Windows (Bottom Dock) */
+.taskbar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px;
+  background-color: #0f172a;
+  color: white;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  gap: 10px;
+  box-shadow: 0 -2px 10px rgba(0,0,0,0.15);
+  z-index: 1000;
+  overflow-x: auto;
+}
+
+.taskbar-title {
+  font-size: 0.75rem;
+  white-space: nowrap;
+  color: #94a3b8;
+}
+
+.taskbar-items {
+  display: flex;
+  gap: 8px;
+}
+
+.taskbar-chip {
+  background: #334155;
+  color: white;
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  cursor: pointer;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  border: 1px solid #475569;
+}
+
+.taskbar-chip:hover {
+  background: #3b82f6;
+}
+
+/* Ajustes Específicos para Telas Muito Pequenas (Celular) */
+@media (max-width: 480px) {
+  body { padding: 8px; padding-bottom: 65px; }
+  .top-bar { justify-content: center; text-align: center; }
+  .dashboard-grid { grid-template-columns: 1fr; }
+}

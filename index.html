@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Centralize - Gestão e Produtividade</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Topo / Header -->
+  <header class="top-bar">
+    <div class="user-menu">
+      <button class="icon-btn">👤 Conta</button>
+      <button class="icon-btn">⚙️ Config</button>
+    </div>
+    <div class="banner-title">
+      <h1>CENTRALIZE</h1>
+    </div>
+    <div class="top-right">
+      <span class="badge">IA Assistant</span>
+    </div>
+  </header>
+
+  <!-- Dashboard com Grid Interativo e Arrastável -->
+  <main class="dashboard-grid" id="dashboard">
+
+    <section class="card widget" id="widget-agenda" draggable="true">
+      <div class="card-header">
+        <span class="drag-handle">⋮⋮ Agenda / Horários</span>
+        <button class="pin-btn" onclick="togglePin('widget-agenda')">📌 Minimizar</button>
+      </div>
+      <div class="carousel-control">
+        <button id="prev-day">&lt;</button>
+        <span id="current-day">Segunda-feira</span>
+        <button id="next-day">&gt;</button>
+      </div>
+      <ul class="schedule-list">
+        <li>08:00 - Aulas / Matérias</li>
+        <li>10:00 - Reunião FECEG</li>
+        <li>14:00 - Sessão de Estudos</li>
+      </ul>
+    </section>
+
+    <section class="card widget" id="widget-links" draggable="true">
+      <div class="card-header">
+        <span class="drag-handle">⋮⋮ Acessos & Links</span>
+        <button class="pin-btn" onclick="togglePin('widget-links')">📌 Minimizar</button>
+      </div>
+      <ul class="links-list">
+        <li><a href="https://classroom.google.com" target="_blank">🔗 Google Classroom</a></li>
+        <li><a href="https://drive.google.com" target="_blank">📁 Google Drive</a></li>
+        <li><a href="#">📄 Google Docs</a></li>
+        <li><a href="#">📊 Excel / Planilhas</a></li>
+      </ul>
+    </section>
+
+    <section class="card widget" id="widget-notes" draggable="true">
+      <div class="card-header">
+        <span class="drag-handle">⋮⋮ Bloco de Notas 📝</span>
+        <button class="pin-btn" onclick="togglePin('widget-notes')">📌 Minimizar</button>
+      </div>
+      <textarea id="quick-notes" placeholder="Escreva suas anotações..."></textarea>
+    </section>
+
+    <section class="card widget" id="widget-music" draggable="true">
+      <div class="card-header">
+        <span class="drag-handle">⋮⋮ Música & Foco 🎵</span>
+        <button class="pin-btn" onclick="togglePin('widget-music')">📌 Minimizar</button>
+      </div>
+      <div class="player-box">
+        <div class="disc-icon">💿</div>
+        <p>Som de Foco / Lofi</p>
+        <input type="text" placeholder="Pesquisar áudio...">
+      </div>
+    </section>
+
+    <section class="card widget" id="widget-tasks" draggable="true">
+      <div class="card-header">
+        <span class="drag-handle">⋮⋮ Lista de Tarefas 📌</span>
+        <button class="pin-btn" onclick="togglePin('widget-tasks')">📌 Minimizar</button>
+      </div>
+      <div class="task-input-box">
+        <input type="text" id="new-task-input" placeholder="Nova tarefa...">
+        <button id="add-task-btn">OK</button>
+      </div>
+      <ul id="task-list" class="task-list">
+        <li><input type="checkbox"> Revisar relatório para FECEG</li>
+        <li><input type="checkbox"> Testar protótipo no celular</li>
+      </ul>
+    </section>
+
+    <section class="card widget" id="widget-acervo" draggable="true">
+      <div class="card-header">
+        <span class="drag-handle">⋮⋮ Acervo 📚</span>
+        <button class="pin-btn" onclick="togglePin('widget-acervo')">📌 Minimizar</button>
+      </div>
+      <ul class="acervo-list">
+        <li>📄 Resumo de Engenharia</li>
+        <li>📄 Artigo Pomodoro & Kanban</li>
+      </ul>
+    </section>
+
+    <section class="card widget" id="widget-study" draggable="true">
+      <div class="card-header">
+        <span class="drag-handle">⋮⋮ Módulos de Estudo</span>
+        <button class="pin-btn" onclick="togglePin('widget-study')">📌 Minimizar</button>
+      </div>
+      <div class="study-grid">
+        <div class="study-card">🍅 Pomodoro</div>
+        <div class="study-card">📋 Kanban</div>
+        <div class="study-card">⚖️ Eisenhower</div>
+        <div class="study-card">💰 Finanças</div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Barra de Tarefas Estilo Windows / Dock (Fixa no Rodapé) -->
+  <footer class="taskbar" id="taskbar">
+    <div class="taskbar-title">📌 Barra de Atalhos:</div>
+    <div class="taskbar-items" id="taskbar-items">
+      <!-- Ícones dos widgets minimizados/fixados aparecerão aqui -->
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
